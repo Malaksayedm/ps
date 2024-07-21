@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 // Function to calculate the area
-float calculateArea(string shape, unsigned params[]) {
+float calculateArea(string shape, float params[]) {
     if (shape == "rectangle") {
         return params[0] * params[1];
     } else if (shape == "triangle") {
@@ -26,10 +26,13 @@ float calculateArea(string shape, unsigned params[]) {
     }
 }
 int main() {
+    // prompting user for the shape 1/1.5
     string shape;
     unsigned paramCount;
     cout << "Enter the shape: ";
     cin >> shape;
+
+    // check the validaty of the choice for the shape 1/1
     if (shape == "rectangle" || shape == "triangle" || shape == "trapezoid" || shape == "rhombus") {
         paramCount = 2;
         if (shape == "trapezoid") {
@@ -39,17 +42,22 @@ int main() {
         paramCount = 1;
     } else {
         cout << "Shape not recognized." << endl;
-        return 0;
+        return 1;
     }
-
-    unsigned params[paramCount];
+    
+    // fill in the dimensions array 2/3
+    float params[paramCount];
     for (int i = 0; i < paramCount; ++i) {
         cout << "Enter parameter " << i + 1 << ": ";
         cin >> params[i];
+        if (params[i] <= 0)
+            i--;
     }
 
+    // printing out the area of the shape 1/1
     float area = calculateArea(shape, params);
     cout << "The area of the " << shape << " is: " << area << endl;
 
     return 0;
 }
+// great work 😎 8/10 ⭐
