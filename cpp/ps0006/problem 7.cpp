@@ -5,7 +5,7 @@ void counter(int end, int start = 0, int step = 1);
 
 int main(void)
 {
-    // Running my valid test cases
+    // Running my valid test cases 3/3
     counter(5); // 0 1 2 3 4 5
     std::cout << "===============" << std::endl;
 
@@ -18,7 +18,7 @@ int main(void)
     counter(10, 10, 0); // 10
     std::cout << "===============" << std::endl;
 
-    // Running invalid test cases, have to give clear error
+    // Running invalid test cases, have to give clear error 3/4
     counter(100, 10, 0); // Error: can't start from 10 to 100 with step 0
     std::cout << "===============" << std::endl;
 
@@ -43,7 +43,7 @@ int main(void)
     counter(-8, 31, -2); // Error: can't start from 31 to -8 with step -2
     std::cout << "===============" << std::endl;
 
-    // Running bonus test cases
+    // Running bonus test cases +0
     counter(100, 1); // 1 2 3 4 5 6 ... 95 96 97 98 99 100
     std::cout << "===============" << std::endl;
 
@@ -65,6 +65,11 @@ void counter(int end, int start, int step) {
         return;
     }
 
+    if (start == end) {
+        std::cout << "Error: can't start from " << start << " to " << end << " with step " << step << std::endl;
+        return;
+    } // you forgot to validate that case
+
     if ((step > 0 && start > end) || (step < 0 && start < end)) {
         std::cout << "Error: can't start from " << start << " to " << end << " with step " << step << std::endl;
         return;
@@ -81,3 +86,4 @@ void counter(int end, int start, int step) {
     }
     std::cout << std::endl;
 }
+// great work 😎 9/10 ⭐
